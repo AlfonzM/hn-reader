@@ -20,7 +20,6 @@ class Story {
 	var url: String
 	
 	init(storyJson: JSON) {
-		print("NEW " + storyJson["by"].stringValue)
 		self.by = storyJson["by"].stringValue
 		self.descendants = storyJson["descendants"].intValue
 		self.id = storyJson["id"].intValue

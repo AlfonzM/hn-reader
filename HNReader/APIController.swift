@@ -14,19 +14,31 @@ class APIController {
 	
 	static func getTopStories(callback: @escaping ([Story]) -> Void) {
 		Alamofire.request(BASE_URL + "topstories.json").responseJSON { response in
-			let storiesDispatchGroup = DispatchGroup()
 			
-			let storiesJson = JSON(response.result.value!)
-			var stories:[Story] = []
+			let storyIdsJson = JSON(response.result.value!)
+			var storiesDict:[Int: Story] = [:]
+			
+			let storiesDispatchGroup = DispatchGroup()
 			
 			let topStoriesToDisplay = 10
 			
-			for i in 0...(topStoriesToDisplay-1) {
+			// initialize the dictionary of stories
+			// this is to save the order of ids
+			for i in 0..<topStoriesToDisplay {
+				let storyId = storyIdsJson[i].intValue
+				storiesDict[storyId] = Story(storyJson: JSON.null)
+			}
+			
+			// loop through all ids and fetch each story
+			for i in 0..<topStoriesToDisplay {
+				print("Downloading \(i+1) / \(topStoriesToDisplay)")
+				
 				storiesDispatchGroup.enter()
 				
-				let storyId = storiesJson[i]
+				let storyId = storyIdsJson[i].intValue
+				
 				Alamofire.request(BASE_URL + "item/\(storyId).json").responseJSON { response in
-					stories.append(Story(storyJson: JSON(response)))
+					storiesDict[storyId] = Story(storyJson: JSON(response.result.value!))
 					storiesDispatchGroup.leave()
 				}
 			}
@@ -34,10 +46,7 @@ class APIController {
 			// finished loading all stories
 			storiesDispatchGroup.notify(queue: DispatchQueue.main, execute: {
 				print("Finished loading all stories")
-				for story in stories {
-					print(story.title + " \(story.id)")
-				}
-				callback(stories)
+				callback(Array(storiesDict.values))
 			})
 		}
 	}

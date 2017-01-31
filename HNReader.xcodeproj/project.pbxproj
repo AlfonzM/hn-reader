@@ -15,6 +15,7 @@
 		930A7E781E3C9FFE007BC07D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A7E771E3C9FFE007BC07D /* HomeViewController.swift */; };
 		930A7E7A1E3CA41F007BC07D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 930A7E791E3CA41F007BC07D /* Podfile */; };
 		930A7E7C1E3CAA1B007BC07D /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */; };
+		9396170A1E3E1206007A4F8E /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939617091E3E1206007A4F8E /* StoryViewController.swift */; };
 		93BD20FD1E3CBA7800DCC6DA /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD20FC1E3CBA7800DCC6DA /* APIController.swift */; };
 		93BD21001E3D8B3A00DCC6DA /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD20FF1E3D8B3A00DCC6DA /* Story.swift */; };
 		93BD21021E3D9A9900DCC6DA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 93BD21011E3D9A9900DCC6DA /* .gitignore */; };
@@ -30,8 +31,9 @@
 		930A7E6F1E3C9FE1007BC07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		930A7E711E3C9FE1007BC07D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		930A7E771E3C9FFE007BC07D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		930A7E791E3CA41F007BC07D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		930A7E791E3CA41F007BC07D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		939617091E3E1206007A4F8E /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		93BD20FC1E3CBA7800DCC6DA /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		93BD20FF1E3D8B3A00DCC6DA /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		93BD21011E3D9A9900DCC6DA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				930A7E771E3C9FFE007BC07D /* HomeViewController.swift */,
 				930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */,
 				93BD20FC1E3CBA7800DCC6DA /* APIController.swift */,
+				939617091E3E1206007A4F8E /* StoryViewController.swift */,
 			);
 			path = HNReader;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9396170A1E3E1206007A4F8E /* StoryViewController.swift in Sources */,
 				93BD20FD1E3CBA7800DCC6DA /* APIController.swift in Sources */,
 				930A7E661E3C9FE1007BC07D /* AppDelegate.swift in Sources */,
 				930A7E781E3C9FFE007BC07D /* HomeViewController.swift in Sources */,

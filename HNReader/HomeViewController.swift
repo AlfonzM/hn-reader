@@ -44,15 +44,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		return cell
 	}
 	
-
-    /*
-    // MARK: - Navigation
-
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.storiesTableView.deselectRow(at: indexPath, animated: true)
+	}
+	
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if (sender as? StoryTableViewCell) != nil {
+			if let index = self.storiesTableView.indexPathForSelectedRow?.row {
+				let storyVc = segue.destination as! StoryViewController
+				storyVc.story = self.topStories[index]
+			}
+		}
     }
-    */
 
 }
