@@ -26,7 +26,7 @@ class APIController {
 			// this is to save the order of ids
 			for i in 0..<topStoriesToDisplay {
 				let storyId = storyIdsJson[i].intValue
-				storiesDict[storyId] = Story(storyJson: JSON.null)
+				storiesDict[storyId] = Story(jsonData: JSON.null)
 			}
 			
 			// loop through all ids and fetch each story
@@ -37,8 +37,8 @@ class APIController {
 				
 				let storyId = storyIdsJson[i].intValue
 				
-				Alamofire.request(BASE_URL + "item/\(storyId).json").responseJSON { response in
-					storiesDict[storyId] = Story(storyJson: JSON(response.result.value!))
+				self.getStory(storyId: storyId) { story in
+					storiesDict[storyId] = story
 					storiesDispatchGroup.leave()
 				}
 			}
@@ -48,6 +48,46 @@ class APIController {
 				print("Finished loading all stories")
 				callback(Array(storiesDict.values))
 			})
+		}
+	}
+	
+	static func getItem(itemId: Int, callback: @escaping(Any?) -> Void) {
+		Alamofire.request(BASE_URL + "item/\(itemId).json").responseJSON { response in
+			let responseJson = JSON(response.result.value!)
+			var item: Any?
+			
+			switch(responseJson["type"]) {
+				case "story":
+				item = Story(jsonData: responseJson)
+				
+				case "comment":
+				item = Comment(jsonData: responseJson)
+				
+				default:
+				item = nil
+			}
+			
+			callback(item)
+		}
+	}
+	
+	static func getStory(storyId: Int, callback: @escaping(Story?) -> Void) {
+		self.getItem(itemId: storyId) { item in
+			if let story = item as? Story {
+				callback(story)
+			} else {
+				callback(nil)
+			}
+		}
+	}
+	
+	static func getComment(commentId: Int, callback: @escaping(Comment?) -> Void) {
+		self.getItem(itemId: commentId) { item in
+			if let comment = item as? Comment {
+				callback(comment)
+			} else {
+				callback(nil)
+			}
 		}
 	}
 }

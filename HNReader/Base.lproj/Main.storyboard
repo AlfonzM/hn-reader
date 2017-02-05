@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-786" y="51"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,13 +91,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lHM-2R-oKy" secondAttribute="bottom" id="S9a-h1-Ref"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rgF-YF-Jaz"/>
+                    <navigationItem key="navigationItem" title="Home" id="rgF-YF-Jaz"/>
                     <connections>
                         <outlet property="storiesTableView" destination="lHM-2R-oKy" id="oXq-Kj-W1U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="60" y="51"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="U6M-9y-xY0">
@@ -116,12 +117,33 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtz-v4-CX6">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yfS-fl-VIN"/>
+                                    <barButtonItem width="1000" style="plain" id="UU2-OY-pJu">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R75-4r-WnL">
+                                            <rect key="frame" x="-313" y="7" width="1000" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="view comments"/>
+                                            <connections>
+                                                <segue destination="d66-n9-cfV" kind="show" identifier="StoryToComments" id="HSb-Xv-GY1"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WSi-rq-fwV"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="j90-54-lzo" firstAttribute="leading" secondItem="uyc-sC-9k5" secondAttribute="leading" id="05Z-W0-Pce"/>
+                            <constraint firstItem="Qtz-v4-CX6" firstAttribute="leading" secondItem="uyc-sC-9k5" secondAttribute="leading" id="2Vl-US-VKy"/>
                             <constraint firstItem="hBJ-9l-eEE" firstAttribute="top" secondItem="j90-54-lzo" secondAttribute="bottom" id="DWF-7f-Yqo"/>
+                            <constraint firstItem="hBJ-9l-eEE" firstAttribute="top" secondItem="Qtz-v4-CX6" secondAttribute="bottom" id="JPk-uv-8ep"/>
                             <constraint firstItem="j90-54-lzo" firstAttribute="top" secondItem="gdL-Px-p0H" secondAttribute="bottom" id="OPQ-JM-THa"/>
+                            <constraint firstAttribute="trailing" secondItem="Qtz-v4-CX6" secondAttribute="trailing" id="X06-rW-X4l"/>
                             <constraint firstAttribute="trailing" secondItem="j90-54-lzo" secondAttribute="trailing" id="vrM-Jz-bzx"/>
                         </constraints>
                     </view>
@@ -131,7 +153,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MK0-xq-Ae2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="114"/>
+            <point key="canvasLocation" x="846" y="51"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="DpG-fc-39D">
+            <objects>
+                <viewController id="d66-n9-cfV" customClass="CommentsViewController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U9B-do-fQC"/>
+                        <viewControllerLayoutGuide type="bottom" id="TsM-k0-ZfT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2mw-MR-7yl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHO-JZ-G9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="51"/>
         </scene>
     </scenes>
 </document>

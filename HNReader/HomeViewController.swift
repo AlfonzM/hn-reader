@@ -11,18 +11,38 @@ import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+	// outlets
 	@IBOutlet weak var storiesTableView: UITableView!
 	
+	// data
+	let FirebaseRef = "https://hacker-news.firebaseio.com/v0/"
+	var indicator = UIActivityIndicatorView()
 	var topStories:[Story] = []
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		self.addActivityIndicator()
+		
+		indicator.startAnimating()
+		indicator.backgroundColor = UIColor.white
+		
 		APIController.getTopStories() { stories in
+			self.indicator.stopAnimating()
+			self.indicator.hidesWhenStopped = true
+			
 			self.topStories = stories
 			self.storiesTableView.reloadData()
 			return
 		}
     }
+	
+	func addActivityIndicator() {
+		indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+		indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+		indicator.center = self.view.center
+		self.view.addSubview(indicator)
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,5 +77,4 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			}
 		}
     }
-
 }

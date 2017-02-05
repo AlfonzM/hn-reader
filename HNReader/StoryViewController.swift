@@ -15,23 +15,22 @@ class StoryViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.navigationItem.title = self.story!.title
+		
 		webView.loadRequest(URLRequest(url: URL(string: self.story!.url)!))
+		
+		self.story?.getComments() { comments in }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	}
+	
+	// prepare segue
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "StoryToComments" {
+			let commentVc = segue.destination as! CommentsViewController
+			commentVc.comments = self.story!.comments!
+		}
+	}
 }

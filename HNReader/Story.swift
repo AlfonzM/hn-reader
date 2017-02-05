@@ -8,26 +8,41 @@
 
 import SwiftyJSON
 
-class Story {
-	var by: String
-	var descendants: Int
-	var id: Int
-	var kids: [Any]
-	var score: Int
-	var time: Int
-	var title: String
-	var type: String
-	var url: String
+class Story: Item {
 	
-	init(storyJson: JSON) {
-		self.by = storyJson["by"].stringValue
-		self.descendants = storyJson["descendants"].intValue
-		self.id = storyJson["id"].intValue
-		self.kids = storyJson["kids"].arrayValue
-		self.score = storyJson["score"].intValue
-		self.time = storyJson["time"].intValue
-		self.title = storyJson["title"].stringValue
-		self.type = storyJson["type"].stringValue
-		self.url = storyJson["url"].stringValue
+	var comments: [Comment]?
+	
+	override init(jsonData: JSON) {
+		self.comments = nil
+		super.init(jsonData: jsonData)
+	}
+	
+	func getComments(callback: @escaping ([Comment]) -> Void) {
+		if self.comments != nil {
+			return
+		}
+		
+		self.comments = []
+		
+		print("Getting comments...")
+		let commentsDispatchGroup = DispatchGroup()
+		
+		for commentId in self.kids {
+			commentsDispatchGroup.enter()
+			
+			APIController.getComment(commentId: commentId) { comment in
+				if comment != nil {
+					self.comments!.append(comment!)
+				}
+				
+				commentsDispatchGroup.leave()
+			}
+		}
+		
+		// finished loading all comments
+		commentsDispatchGroup.notify(queue: DispatchQueue.main, execute: {
+			print("Finished loading \(self.comments?.count) comments")
+			callback(self.comments!)
+		})
 	}
 }
