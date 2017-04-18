@@ -31,6 +31,12 @@ class StoryViewController: UIViewController {
 		if segue.identifier == "StoryToComments" {
 			let commentVc = segue.destination as! CommentsViewController
 			commentVc.comments = self.story!.comments!
+		} else if segue.identifier == "StoryToCommentsWeb" {
+			let commentWebVc = segue.destination as! CommentsWebViewController
+			
+			if let storyId = self.story?.id {
+				commentWebVc.url = "https://news.ycombinator.com/item?id=\(storyId)"
+			}
 		}
 	}
 }

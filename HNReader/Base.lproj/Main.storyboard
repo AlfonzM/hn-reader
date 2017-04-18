@@ -128,7 +128,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="view comments"/>
                                             <connections>
-                                                <segue destination="d66-n9-cfV" kind="show" identifier="StoryToComments" id="HSb-Xv-GY1"/>
+                                                <segue destination="PIK-oF-d7T" kind="show" identifier="StoryToCommentsWeb" id="Z4t-FV-1ni"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -172,6 +172,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHO-JZ-G9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1687" y="51"/>
+        </scene>
+        <!--Comments Web View Controller-->
+        <scene sceneID="vhJ-QI-PXr">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="PIK-oF-d7T" customClass="CommentsWebViewController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6jS-TU-wOH"/>
+                        <viewControllerLayoutGuide type="bottom" id="oGY-pw-6ol"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ceQ-fP-qgW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYI-id-rjz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BYI-id-rjz" secondAttribute="trailing" id="Ds0-qY-Sr9"/>
+                            <constraint firstItem="BYI-id-rjz" firstAttribute="top" secondItem="6jS-TU-wOH" secondAttribute="bottom" id="EAf-mu-97Q"/>
+                            <constraint firstItem="BYI-id-rjz" firstAttribute="leading" secondItem="ceQ-fP-qgW" secondAttribute="leading" id="Mhc-K7-9so"/>
+                            <constraint firstItem="oGY-pw-6ol" firstAttribute="top" secondItem="BYI-id-rjz" secondAttribute="bottom" id="vIs-Au-vy5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commentsWebView" destination="BYI-id-rjz" id="GsT-bN-YpD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIV-q3-gPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="816"/>
         </scene>
     </scenes>
 </document>

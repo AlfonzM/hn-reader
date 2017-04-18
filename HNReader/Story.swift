@@ -27,7 +27,13 @@ class Story: Item {
 		print("Getting comments...")
 		let commentsDispatchGroup = DispatchGroup()
 		
-		for commentId in self.kids {
+		let maxCommentsToGet = 10
+		
+		for (i, commentId) in self.kids.enumerated() {
+			if i > maxCommentsToGet {
+				break
+			}
+			
 			commentsDispatchGroup.enter()
 			
 			APIController.getComment(commentId: commentId) { comment in
