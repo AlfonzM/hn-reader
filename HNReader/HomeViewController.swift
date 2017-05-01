@@ -38,6 +38,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			
 			return
 		}
+		
+		self.storiesTableView.tableFooterView = UIView(frame: .zero)
     }
 	
 	func addActivityIndicator() {

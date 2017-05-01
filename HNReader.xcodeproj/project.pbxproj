@@ -11,7 +11,7 @@
 		9308305C1E46425B002EB06E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9308305B1E46425B002EB06E /* Comment.swift */; };
 		9308305E1E464282002EB06E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9308305D1E464282002EB06E /* Item.swift */; };
 		930830601E464E55002EB06E /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9308305F1E464E55002EB06E /* CommentsViewController.swift */; };
-		930830621E46DB9B002EB06E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 930830611E46DB9B002EB06E /* README.md */; };
+		930830621E46DB9B002EB06E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 930830611E46DB9B002EB06E /* README.md */; };
 		930A7E661E3C9FE1007BC07D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A7E651E3C9FE1007BC07D /* AppDelegate.swift */; };
 		930A7E6B1E3C9FE1007BC07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930A7E691E3C9FE1007BC07D /* Main.storyboard */; };
 		930A7E6D1E3C9FE1007BC07D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930A7E6C1E3C9FE1007BC07D /* Assets.xcassets */; };
@@ -90,22 +90,46 @@
 		930A7E641E3C9FE1007BC07D /* HNReader */ = {
 			isa = PBXGroup;
 			children = (
+				934960D91EB772EC009D992A /* helpers */,
+				934960D61EB772B3009D992A /* views */,
+				934960D51EB772A4009D992A /* controllers */,
 				93BD20FE1E3D8B2900DCC6DA /* models */,
 				930A7E651E3C9FE1007BC07D /* AppDelegate.swift */,
 				930A7E691E3C9FE1007BC07D /* Main.storyboard */,
-				93CAEFF01EA63D5000A2CDCE /* CommentsWebViewController.swift */,
 				930A7E6C1E3C9FE1007BC07D /* Assets.xcassets */,
 				930A7E6E1E3C9FE1007BC07D /* LaunchScreen.storyboard */,
 				930A7E711E3C9FE1007BC07D /* Info.plist */,
+			);
+			path = HNReader;
+			sourceTree = "<group>";
+		};
+		934960D51EB772A4009D992A /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93CAEFF01EA63D5000A2CDCE /* CommentsWebViewController.swift */,
 				930A7E771E3C9FFE007BC07D /* HomeViewController.swift */,
-				930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */,
-				93BD20FC1E3CBA7800DCC6DA /* APIController.swift */,
 				939617091E3E1206007A4F8E /* StoryViewController.swift */,
 				9308305F1E464E55002EB06E /* CommentsViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		934960D61EB772B3009D992A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */,
 				9387C9201E4756BD0092624C /* CommentTableViewCell.swift */,
 				9387C9211E4756BD0092624C /* CommentTableViewCell.xib */,
 			);
-			path = HNReader;
+			name = views;
+			sourceTree = "<group>";
+		};
+		934960D91EB772EC009D992A /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				93BD20FC1E3CBA7800DCC6DA /* APIController.swift */,
+			);
+			name = helpers;
 			sourceTree = "<group>";
 		};
 		93BD20FE1E3D8B2900DCC6DA /* models */ = {
@@ -198,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930830621E46DB9B002EB06E /* README.md in Resources */,
 				93BD21021E3D9A9900DCC6DA /* .gitignore in Resources */,
 				9387C9231E4756BD0092624C /* CommentTableViewCell.xib in Resources */,
 				930A7E701E3C9FE1007BC07D /* LaunchScreen.storyboard in Resources */,
@@ -265,7 +290,6 @@
 				9387C9221E4756BD0092624C /* CommentTableViewCell.swift in Sources */,
 				9396170A1E3E1206007A4F8E /* StoryViewController.swift in Sources */,
 				93BD20FD1E3CBA7800DCC6DA /* APIController.swift in Sources */,
-				930830621E46DB9B002EB06E /* README.md in Sources */,
 				930A7E661E3C9FE1007BC07D /* AppDelegate.swift in Sources */,
 				93CAEFF11EA63D5000A2CDCE /* CommentsWebViewController.swift in Sources */,
 				9308305C1E46425B002EB06E /* Comment.swift in Sources */,

@@ -10,16 +10,20 @@ import UIKit
 
 class StoryViewController: UIViewController {
 
-	var story:Story?
+	var story:Story!
 	@IBOutlet weak var webView: UIWebView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.navigationItem.title = self.story!.title
+		self.navigationItem.title = self.story.title
 		
-		webView.loadRequest(URLRequest(url: URL(string: self.story!.url)!))
+		print(self.story.id)
 		
-		self.story?.getComments() { comments in }
+		webView.loadRequest(URLRequest(url: URL(string: self.story.url)!))
+
+		APIController.getComments(storyId: self.story.id, callback: { comments in
+			self.story.comments = comments
+		})
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,13 +34,11 @@ class StoryViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "StoryToComments" {
 			let commentVc = segue.destination as! CommentsViewController
-			commentVc.comments = self.story!.comments!
+			commentVc.comments = self.story.comments ?? []
 		} else if segue.identifier == "StoryToCommentsWeb" {
 			let commentWebVc = segue.destination as! CommentsWebViewController
 			
-			if let storyId = self.story?.id {
-				commentWebVc.url = "https://news.ycombinator.com/item?id=\(storyId)"
-			}
+			commentWebVc.url = "https://news.ycombinator.com/item?id=\(self.story.id)"
 		}
 	}
 }

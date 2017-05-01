@@ -10,10 +10,11 @@ import Alamofire
 import SwiftyJSON
 
 class APIController {
-	static let BASE_URL = "https://hacker-news.firebaseio.com/v0/"
+	static let HN_BASE_URL = "https://hacker-news.firebaseio.com/v0/"
+	static let ALGOLIA_BASE_URL = "https://hn.algolia.com/api/v1/"
 	
 	static func getTopStories(callback: @escaping ([Story]) -> Void) {
-		Alamofire.request(BASE_URL + "topstories.json").responseJSON { response in
+		Alamofire.request(HN_BASE_URL + "topstories.json").responseJSON { response in
 			
 			let storyIdsJson = JSON(response.result.value!)
 			var storiesDict:[Int: Story] = [:]
@@ -52,7 +53,7 @@ class APIController {
 	}
 	
 	static func getItem(itemId: Int, callback: @escaping(Any?) -> Void) {
-		Alamofire.request(BASE_URL + "item/\(itemId).json").responseJSON { response in
+		Alamofire.request(ALGOLIA_BASE_URL + "items/\(itemId)").responseJSON { response in
 			let responseJson = JSON(response.result.value!)
 			var item: Any?
 			
@@ -60,14 +61,35 @@ class APIController {
 				case "story":
 				item = Story(jsonData: responseJson)
 				
-				case "comment":
-				item = Comment(jsonData: responseJson)
+//				case "comment":
+//				item = Comment(jsonData: responseJson)
 				
 				default:
 				item = nil
 			}
 			
 			callback(item)
+		}
+	}
+	
+	static func getComments(storyId: Int, callback: @escaping ([Comment]) -> Void) {
+		Alamofire.request(ALGOLIA_BASE_URL + "items/\(storyId)").responseJSON { response in
+			
+			switch response.result {
+			case .success(let value):
+				let responseJson = JSON(value)
+				
+				var comments: [Comment] = []
+				
+				for (_,commentJson):(String, JSON) in responseJson["children"] {
+					comments.append(Comment(jsonData: commentJson))
+				}
+				
+				callback(comments)
+				
+			case .failure(let error):
+				print(error)
+			}
 		}
 	}
 	
