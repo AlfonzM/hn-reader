@@ -33,6 +33,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 			
 			self.topStories = stories
 			self.storiesTableView.reloadData()
+			self.storiesTableView.estimatedRowHeight = 60
+			self.storiesTableView.rowHeight = UITableViewAutomaticDimension
+			
 			return
 		}
     }
