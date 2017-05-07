@@ -21,11 +21,15 @@
 		930A7E7C1E3CAA1B007BC07D /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */; };
 		9387C9221E4756BD0092624C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387C9201E4756BD0092624C /* CommentTableViewCell.swift */; };
 		9387C9231E4756BD0092624C /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9387C9211E4756BD0092624C /* CommentTableViewCell.xib */; };
+		938E49A61EB79C180028482C /* String+HTMLEncodedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E49A51EB79C180028482C /* String+HTMLEncodedString.swift */; };
 		9396170A1E3E1206007A4F8E /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939617091E3E1206007A4F8E /* StoryViewController.swift */; };
 		93BD20FD1E3CBA7800DCC6DA /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD20FC1E3CBA7800DCC6DA /* APIController.swift */; };
 		93BD21001E3D8B3A00DCC6DA /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD20FF1E3D8B3A00DCC6DA /* Story.swift */; };
 		93BD21021E3D9A9900DCC6DA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 93BD21011E3D9A9900DCC6DA /* .gitignore */; };
 		93CAEFF11EA63D5000A2CDCE /* CommentsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAEFF01EA63D5000A2CDCE /* CommentsWebViewController.swift */; };
+		93D25F091EBACE0800F9F8FC /* StoryCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D25F081EBACE0800F9F8FC /* StoryCommentsViewController.swift */; };
+		93D25F0E1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D25F0C1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.swift */; };
+		93D25F0F1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D25F0D1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,11 +50,15 @@
 		930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		9387C9201E4756BD0092624C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		9387C9211E4756BD0092624C /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		938E49A51EB79C180028482C /* String+HTMLEncodedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEncodedString.swift"; sourceTree = "<group>"; };
 		939617091E3E1206007A4F8E /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		93BD20FC1E3CBA7800DCC6DA /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		93BD20FF1E3D8B3A00DCC6DA /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		93BD21011E3D9A9900DCC6DA /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		93CAEFF01EA63D5000A2CDCE /* CommentsWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsWebViewController.swift; sourceTree = "<group>"; };
+		93D25F081EBACE0800F9F8FC /* StoryCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCommentsViewController.swift; sourceTree = "<group>"; };
+		93D25F0C1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCommentTableViewCell.swift; sourceTree = "<group>"; };
+		93D25F0D1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryCommentTableViewCell.xib; sourceTree = "<group>"; };
 		CD82C166173F9F3D06B63EC9 /* Pods-HNReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNReader/Pods-HNReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +118,7 @@
 				930A7E771E3C9FFE007BC07D /* HomeViewController.swift */,
 				939617091E3E1206007A4F8E /* StoryViewController.swift */,
 				9308305F1E464E55002EB06E /* CommentsViewController.swift */,
+				93D25F081EBACE0800F9F8FC /* StoryCommentsViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -120,6 +129,8 @@
 				930A7E7B1E3CAA1B007BC07D /* StoryTableViewCell.swift */,
 				9387C9201E4756BD0092624C /* CommentTableViewCell.swift */,
 				9387C9211E4756BD0092624C /* CommentTableViewCell.xib */,
+				93D25F0C1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.swift */,
+				93D25F0D1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -128,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				93BD20FC1E3CBA7800DCC6DA /* APIController.swift */,
+				938E49A51EB79C180028482C /* String+HTMLEncodedString.swift */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
@@ -227,6 +239,7 @@
 				9387C9231E4756BD0092624C /* CommentTableViewCell.xib in Resources */,
 				930A7E701E3C9FE1007BC07D /* LaunchScreen.storyboard in Resources */,
 				930A7E6D1E3C9FE1007BC07D /* Assets.xcassets in Resources */,
+				93D25F0F1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.xib in Resources */,
 				930A7E7A1E3CA41F007BC07D /* Podfile in Resources */,
 				930A7E6B1E3C9FE1007BC07D /* Main.storyboard in Resources */,
 			);
@@ -295,7 +308,10 @@
 				9308305C1E46425B002EB06E /* Comment.swift in Sources */,
 				9308305E1E464282002EB06E /* Item.swift in Sources */,
 				930A7E781E3C9FFE007BC07D /* HomeViewController.swift in Sources */,
+				93D25F091EBACE0800F9F8FC /* StoryCommentsViewController.swift in Sources */,
+				93D25F0E1EBAD1FF00F9F8FC /* StoryCommentTableViewCell.swift in Sources */,
 				930A7E7C1E3CAA1B007BC07D /* StoryTableViewCell.swift in Sources */,
+				938E49A61EB79C180028482C /* String+HTMLEncodedString.swift in Sources */,
 				93BD21001E3D8B3A00DCC6DA /* Story.swift in Sources */,
 				930830601E464E55002EB06E /* CommentsViewController.swift in Sources */,
 			);
@@ -425,7 +441,7 @@
 				DEVELOPMENT_TEAM = ZP77L32NN7;
 				INFOPLIST_FILE = HNReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = us.alphons.HNReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.alphonsus.hnreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -440,7 +456,7 @@
 				DEVELOPMENT_TEAM = ZP77L32NN7;
 				INFOPLIST_FILE = HNReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = us.alphons.HNReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.alphonsus.hnreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

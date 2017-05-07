@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="storyCommentTableCell" rowHeight="59" id="KGk-i7-Jjw" customClass="StoryCommentTableViewCell" customModule="HNReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnE-cN-itx">
+                        <rect key="frame" x="10" y="10" width="26.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.86567860839999999" green="0.31920152899999998" blue="0.024620119480000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKq-uM-1v7">
+                        <rect key="frame" x="46.5" y="10" width="78" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFa-ee-zfS">
+                        <rect key="frame" x="10" y="31" width="302" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EnE-cN-itx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3ws-mL-Sl2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JFa-ee-zfS" secondAttribute="bottom" constant="5.5" id="5lz-tm-zNd"/>
+                    <constraint firstItem="EnE-cN-itx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Ih7-SE-AaT"/>
+                    <constraint firstItem="CKq-uM-1v7" firstAttribute="top" secondItem="EnE-cN-itx" secondAttribute="top" id="eLU-fl-1Ba"/>
+                    <constraint firstItem="JFa-ee-zfS" firstAttribute="leading" secondItem="EnE-cN-itx" secondAttribute="leading" id="i05-d4-F98"/>
+                    <constraint firstItem="JFa-ee-zfS" firstAttribute="top" secondItem="EnE-cN-itx" secondAttribute="bottom" constant="5" id="tDX-jO-gBr"/>
+                    <constraint firstItem="CKq-uM-1v7" firstAttribute="leading" secondItem="EnE-cN-itx" secondAttribute="trailing" constant="10" id="wXd-5E-EFy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JFa-ee-zfS" secondAttribute="trailing" id="zuR-4Z-J21"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentTextLabel" destination="JFa-ee-zfS" id="0uv-BH-FTM"/>
+                <outlet property="timestampLabel" destination="CKq-uM-1v7" id="U8p-Ku-4AD"/>
+                <outlet property="usernameLabel" destination="EnE-cN-itx" id="DCU-KX-ZjY"/>
+            </connections>
+            <point key="canvasLocation" x="99" y="61.5"/>
+        </tableViewCell>
+    </objects>
+</document>

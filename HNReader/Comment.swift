@@ -12,14 +12,23 @@ import SwiftyJSON
 class Comment: Item
 {
 	var children : [Comment] = []
+	var level: Int = 1
 	
 	override init(jsonData: JSON){
 		super.init(jsonData: jsonData)
+		level = (jsonData["level"].intValue != 0) ? jsonData["level"].intValue : 1
 		
 		// Recursion for sub-comments
 		for (_,commentJson):(String, JSON) in jsonData["children"] {
-			children.append(Comment(jsonData: commentJson))
+			let child = Comment(jsonData: commentJson, level: level + 1)
+			self.addChild(child)
 		}
+	}
+	
+	convenience init(jsonData: JSON, level: Int){
+		var jsonDataWithLevel = jsonData
+		jsonDataWithLevel["level"] = JSON(level)
+		self.init(jsonData: jsonDataWithLevel)
 	}
 	
 //	init(jsonData: JSON, children: [Comment]) {
@@ -47,10 +56,6 @@ class Comment: Item
 //			print("Finished loading \(self.children.count) subcomments")
 //		})
 //	}
- 
-//	override convenience init(jsonData: JSON) {
-//		self.init(jsonData: jsonData, children: [Comment]())
-//	}
 	
 	func addChild(_ child : Comment) {
 		self.children.append(child)
@@ -58,5 +63,14 @@ class Comment: Item
 	
 	func removeChild(_ child : Comment) {
 		self.children = self.children.filter( {$0 !== child})
+	}
+}
+
+
+extension String{
+	func htmlAttributedString() -> NSAttributedString? {
+		guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
+		guard let html = try? NSMutableAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil) else { return nil }
+		return html
 	}
 }

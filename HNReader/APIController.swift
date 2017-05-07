@@ -32,7 +32,6 @@ class APIController {
 			
 			// loop through all ids and fetch each story
 			for i in 0..<topStoriesToDisplay {
-				print("Downloading \(i+1) / \(topStoriesToDisplay)")
 				
 				storiesDispatchGroup.enter()
 				
@@ -46,7 +45,6 @@ class APIController {
 			
 			// finished loading all stories
 			storiesDispatchGroup.notify(queue: DispatchQueue.main, execute: {
-				print("Finished loading all stories")
 				callback(Array(storiesDict.values))
 			})
 		}

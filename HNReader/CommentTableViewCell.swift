@@ -8,30 +8,32 @@
 
 import UIKit
 
-class CommentTableViewCell : UITableViewCell {	
-	@IBOutlet private weak var commentTextLabel: UILabel!
+class CommentTableViewCell : UITableViewCell {
+	var collapsed: Bool = false
+	
+	@IBOutlet weak var usernameLeadingConstraint: NSLayoutConstraint!
+	@IBOutlet weak var usernameTextLabel: UILabel!
+	@IBOutlet weak var commentTextLabel: UILabel!
 	
 	override func awakeFromNib() {
 		selectedBackgroundView? = UIView()
 		selectedBackgroundView?.backgroundColor = .clear
 	}
 	
-	var additionButtonActionBlock : ((CommentTableViewCell) -> Void)?;
+//	override func prepareForReuse() {
+//		self.setNeedsUpdateConstraints()
+//		super.prepareForReuse()
+//	}
 	
-	func setup(text: String, detailsText: String, level : Int) {
-		//		commentTextLabel.text = "LEVEL \(level) — \(text)"
+	func setup(comment: Comment) {
+		usernameLeadingConstraint.constant = CGFloat(comment.level) * 16
 		
-		let left = 10.0 * CGFloat(level)
-		self.commentTextLabel.frame.origin.x = left
+		usernameTextLabel.text = comment.by
 		
-		commentTextLabel.text = "\(left) \(text)"
-		self.layoutIfNeeded()
+		commentTextLabel.text = comment.text.html2String.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 	}
 	
-	func additionButtonTapped(_ sender : AnyObject) -> Void {
-		if let action = additionButtonActionBlock {
-			action(self)
-		}
+	func updateCollapsed() {
+		collapsed = !collapsed
 	}
-	
 }

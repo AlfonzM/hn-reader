@@ -23,7 +23,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 		
 		self.addActivityIndicator()
-		
 		indicator.startAnimating()
 		indicator.backgroundColor = UIColor.white
 		
